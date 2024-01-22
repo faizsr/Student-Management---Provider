@@ -8,10 +8,10 @@ import 'package:student_management_pro/presentation/screens/student%20detail/wid
 class StudentDetailWidget extends StatelessWidget {
   const StudentDetailWidget({
     super.key,
-    required this.studentModel,
+    required this.student,
   });
 
-  final StudentModel studentModel;
+  final StudentModel student;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class StudentDetailWidget extends StatelessWidget {
                   ),
                   kHeight(MediaQuery.of(context).size.height * 0.02),
                   MainTitle(
-                    studentModel: studentModel,
+                    student: student,
                   ),
                   kHeight(MediaQuery.of(context).size.height * 0.03),
                   kDivider,
@@ -56,7 +56,7 @@ class StudentDetailWidget extends StatelessWidget {
                   InfoWidget(
                     heading: 'Personal information',
                     heading2: 'Other details',
-                    studentModel: studentModel,
+                    student: student,
                   ),
                   kHeight(MediaQuery.of(context).size.height * 0.05),
                 ],

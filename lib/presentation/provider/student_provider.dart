@@ -9,8 +9,8 @@ class StudentProvider extends ChangeNotifier {
 
   List<StudentModel> get allStudent => _allStudent;
 
-  fetchAllStudent() async {
-    var student = await studentRepository.getData();
+  fetchAllStudent({String? query}) async {
+    var student = await studentRepository.getData(query ?? '');
     _allStudent = student;
     notifyListeners();
   }
@@ -18,17 +18,16 @@ class StudentProvider extends ChangeNotifier {
   addStudent(StudentModel studentModel) {
     studentRepository.addData(studentModel);
     fetchAllStudent();
-    // notifyListeners();
   }
 
   updateStudent(StudentModel studentModel) {
     studentRepository.updateData(studentModel);
     fetchAllStudent();
-    // notifyListeners();
   }
 
   deleteStudent(int id) {
     studentRepository.deleteData(id);
     fetchAllStudent();
+    notifyListeners();
   }
 }

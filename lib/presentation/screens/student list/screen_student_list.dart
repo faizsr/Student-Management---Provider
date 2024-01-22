@@ -20,34 +20,37 @@ class ScreenStudentList extends StatelessWidget {
               Size.fromHeight(MediaQuery.of(context).size.height * 0.2),
           child: const CustomAppbarWidget(),
         ),
-        body: Center(child:
-            Consumer<StudentProvider>(builder: (context, studentModel, child) {
-          return studentModel.allStudent.isNotEmpty
-              ? ListView.builder(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  itemCount: studentModel.allStudent.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => ScreenStudentDetail(
-                            index: index,
+        body: Center(
+          child: Consumer<StudentProvider>(
+            builder: (context, studentModel, child) {
+              return studentModel.allStudent.isNotEmpty
+                  ? ListView.builder(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      itemCount: studentModel.allStudent.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => ScreenStudentDetail(
+                                index: index,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                      child: ListCardWidget(
-                        studentModel: studentModel.allStudent[index],
-                      ),
+                          child: ListCardWidget(
+                            studentModel: studentModel.allStudent[index],
+                          ),
+                        );
+                      },
+                    )
+                  : const SubHeadingWidget(
+                      text: 'List is Empty!!!',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: kDarkBlue,
                     );
-                  },
-                )
-              : const SubHeadingWidget(
-                  text: 'List is Empty!!!',
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: kDarkBlue,
-                );
-        })),
+            },
+          ),
+        ),
       ),
     );
   }

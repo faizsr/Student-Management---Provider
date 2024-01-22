@@ -9,12 +9,12 @@ class InfoWidget extends StatelessWidget {
     super.key,
     required this.heading,
     required this.heading2,
-    required this.studentModel,
+    required this.student,
   });
 
   final String heading;
   final String heading2;
-  final StudentModel studentModel;
+  final StudentModel student;
 
   @override
   Widget build(BuildContext context) {
@@ -31,22 +31,22 @@ class InfoWidget extends StatelessWidget {
         _detailListTile(
           context: context,
           title: 'Date of Birth',
-          trailing: studentModel.dob,
+          trailing: student.dob,
         ),
         _detailListTile(
           context: context,
           title: 'Gender',
-          trailing: studentModel.gender,
+          trailing: student.gender,
         ),
         _detailListTile(
           context: context,
           title: 'Phone number',
-          trailing: studentModel.phoneNumber,
+          trailing: student.phoneNumber,
         ),
         _addressListTile(
           context: context,
           title: 'Email Address',
-          subText: studentModel.emailAddress,
+          subText: student.emailAddress,
         ),
         kHeight(MediaQuery.of(context).size.height * 0.03),
         SubHeadingWidget(
@@ -59,7 +59,7 @@ class InfoWidget extends StatelessWidget {
         _detailListTile(
           context: context,
           title: 'Roll no.',
-          trailing: studentModel.rollNumber,
+          trailing: student.rollNumber,
         ),
         kHeight(MediaQuery.of(context).size.height * 0.04),
       ],

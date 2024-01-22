@@ -5,11 +5,8 @@ class StudentModel {
   String? gender;
   String? phoneNumber;
   String? emailAddress;
-  String? homeAddress;
   String? profile;
   String? department;
-  String? admissionDate;
-  String? studentId;
   String? rollNumber;
   String? studentClass;
 
@@ -20,11 +17,8 @@ class StudentModel {
     this.gender,
     this.phoneNumber,
     this.emailAddress,
-    this.homeAddress,
     this.profile,
     this.department,
-    this.admissionDate,
-    this.studentId,
     this.rollNumber,
     this.studentClass,
   });
@@ -37,11 +31,8 @@ class StudentModel {
       gender: json['gender'],
       phoneNumber: json['phoneNumber'],
       emailAddress: json['emailAddress'],
-      homeAddress: json['homeAddress'],
       profile: json['profile'],
       department: json['department'],
-      admissionDate: json['admissionDate'],
-      studentId: json['studentId'],
       rollNumber: json['rollNumber'],
       studentClass: json['studentClass'],
     );
@@ -55,11 +46,8 @@ class StudentModel {
       'gender': gender,
       'phoneNumber': phoneNumber,
       'emailAddress': emailAddress,
-      'homeAddress': homeAddress,
       'profile': profile,
       'department': department,
-      'admissionDate': admissionDate,
-      'studentId': studentId,
       'rollNumber': rollNumber,
       'studentClass': studentClass,
     };

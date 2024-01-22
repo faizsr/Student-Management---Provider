@@ -8,10 +8,10 @@ import 'package:student_management_pro/data/model/student.dart';
 class DetailProfileImageWidget extends StatelessWidget {
   const DetailProfileImageWidget({
     super.key,
-    required this.studentModel,
+    required this.student,
   });
 
-  final StudentModel studentModel;
+  final StudentModel student;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class DetailProfileImageWidget extends StatelessWidget {
           decoration: BoxDecoration(
             color: kDarkBlue,
             image: DecorationImage(
-              image: FileImage(File(studentModel.profile!)),
+              image: FileImage(File(student.profile!)),
               fit: BoxFit.cover,
             ),
           ),

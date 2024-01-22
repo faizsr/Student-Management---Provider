@@ -1,15 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:student_management_pro/core/assets.dart';
+import 'package:student_management_pro/core/utils/debouncer.dart';
+import 'package:student_management_pro/presentation/provider/student_provider.dart';
 
 class CustomSearchFieldWidget extends StatelessWidget {
-  const CustomSearchFieldWidget({super.key});
+  CustomSearchFieldWidget({super.key});
 
-  // final Debouncer debouncer =
-  //     Debouncer(delay: const Duration(milliseconds: 500));
+  final Debouncer debouncer =
+      Debouncer(delay: const Duration(milliseconds: 500));
 
   @override
   Widget build(BuildContext context) {
+    final studentProvider =
+        Provider.of<StudentProvider>(context, listen: false);
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.07,
       child: CupertinoSearchTextField(
@@ -35,8 +40,9 @@ class CustomSearchFieldWidget extends StatelessWidget {
           fontSize: 16,
         ),
         onChanged: (value) {
-          // debouncer.call(() {
-          // });
+          debouncer.call(() {
+            studentProvider.fetchAllStudent(query: value);
+          });
         },
       ),
     );

@@ -5,10 +5,10 @@ import 'package:student_management_pro/data/model/student.dart';
 class MainTitle extends StatelessWidget {
   const MainTitle({
     super.key,
-    required this.studentModel,
+    required this.student,
   });
 
-  final StudentModel studentModel;
+  final StudentModel student;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,14 @@ class MainTitle extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              studentModel.name!,
+              student.name!,
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
               ),
             ),
             Text(
-              'Department: ${studentModel.department}',
+              'Department: ${student.department}',
               style: const TextStyle(
                 fontSize: 12,
                 color: Colors.grey,
@@ -53,7 +53,7 @@ class MainTitle extends StatelessWidget {
                 ),
               ),
               Text(
-                studentModel.studentClass!,
+                student.studentClass!,
                 style: const TextStyle(
                   height: 1.2,
                   fontSize: 22,

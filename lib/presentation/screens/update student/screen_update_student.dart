@@ -30,9 +30,6 @@ class ScreenUpdateStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final studentProvider = Provider.of<StudentProvider>(context);
-    final imagePickerProvider = Provider.of<ImagePickerProvider>(context);
-
     nameController.text = studentModel.name!;
     dobController.text = studentModel.dob!;
     genderController.text = studentModel.gender!;
@@ -41,6 +38,9 @@ class ScreenUpdateStudent extends StatelessWidget {
     departmentController.text = studentModel.department!;
     rollNumberController.text = studentModel.rollNumber!;
     studentClassController.text = studentModel.studentClass!;
+
+    final studentProvider = Provider.of<StudentProvider>(context);
+    final imagePickerProvider = Provider.of<ImagePickerProvider>(context);
 
     return SafeArea(
       child: Scaffold(

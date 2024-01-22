@@ -41,7 +41,7 @@ class CustomAppbarWidget extends StatelessWidget {
               ],
             ),
             kHeight(MediaQuery.of(context).size.height * 0.03),
-            const CustomSearchFieldWidget()
+            CustomSearchFieldWidget()
           ],
         ),
       ),

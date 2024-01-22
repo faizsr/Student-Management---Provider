@@ -22,6 +22,7 @@ class DBHelper {
   }
 
   _onCreate(Database db, int version) {
-    db.execute('CREATE TABLE student(id INTEGER PRIMARY KEY, name TEXT, dob TEXT, gender TEXT, phoneNumber TEXT, emailAddress TEXT, homeAddress TEXT, profile TEXT, department TEXT, admissionDate TEXT, studentId TEXT, rollNumber TEXT, studentClass TEXT)');
+    db.execute(
+        'CREATE TABLE student(id INTEGER PRIMARY KEY, name TEXT, dob TEXT, gender TEXT, phoneNumber TEXT, emailAddress TEXT, profile TEXT, department TEXT, rollNumber TEXT, studentClass TEXT)');
   }
 }

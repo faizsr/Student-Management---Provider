@@ -25,10 +25,10 @@ class ScreenStudentDetail extends StatelessWidget {
         body: Stack(
           children: [
             DetailProfileImageWidget(
-              studentModel: studentProvider.allStudent[index],
+              student: studentProvider.allStudent[index],
             ),
             StudentDetailWidget(
-              studentModel: studentProvider.allStudent[index],
+              student: studentProvider.allStudent[index],
             ),
           ],
         ),
@@ -55,7 +55,11 @@ class ScreenStudentDetail extends StatelessWidget {
                   text: 'Update Profile',
                 ),
                 CustomMaterialButton(
-                  onTap: () {},
+                  onTap: () {
+                    studentProvider
+                        .deleteStudent(studentProvider.allStudent[index].id!);
+                    Navigator.pop(context);
+                  },
                   text: 'Remove Profile',
                 ),
               ],

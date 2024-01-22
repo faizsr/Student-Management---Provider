@@ -44,7 +44,7 @@ class CustomAddButton extends StatelessWidget {
       color: kDarkBlue,
       onPressed: () {
         int id = DateTime.now().millisecondsSinceEpoch;
-        // print('id on adding: $id');
+        print('id on adding: $id');
         if (formkey.currentState!.validate()) {
           studentProvider.addStudent(StudentModel(
             id: id,
