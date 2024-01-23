@@ -28,6 +28,5 @@ class StudentProvider extends ChangeNotifier {
   deleteStudent(int id) {
     studentRepository.deleteData(id);
     fetchAllStudent();
-    notifyListeners();
   }
 }
