@@ -48,8 +48,10 @@ class _ScreenUpdateStudentState extends State<ScreenUpdateStudent> {
 
   @override
   Widget build(BuildContext context) {
-    final studentProvider = Provider.of<StudentProvider>(context);
-    final imagePickerProvider = Provider.of<ImagePickerProvider>(context);
+    final studentProvider =
+        Provider.of<StudentProvider>(context, listen: false);
+    final imagePickerProvider =
+        Provider.of<ImagePickerProvider>(context, listen: false);
 
     return SafeArea(
       child: Scaffold(

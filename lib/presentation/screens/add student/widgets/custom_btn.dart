@@ -33,7 +33,8 @@ class CustomAddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final studentProvider =
         Provider.of<StudentProvider>(context, listen: false);
-    final imagePickerProvider = Provider.of<ImagePickerProvider>(context);
+    final imagePickerProvider =
+        Provider.of<ImagePickerProvider>(context, listen: false);
 
     return MaterialButton(
       minWidth: MediaQuery.of(context).size.width * 0.25,
