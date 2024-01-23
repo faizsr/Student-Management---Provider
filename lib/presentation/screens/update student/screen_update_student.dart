@@ -9,14 +9,19 @@ import 'package:student_management_pro/presentation/provider/image_picker_provid
 import 'package:student_management_pro/presentation/provider/student_provider.dart';
 import 'package:student_management_pro/presentation/screens/add%20student/widgets/sections.dart';
 
-class ScreenUpdateStudent extends StatelessWidget {
-  ScreenUpdateStudent({
+class ScreenUpdateStudent extends StatefulWidget {
+  const ScreenUpdateStudent({
     super.key,
     required this.studentModel,
   });
 
   final StudentModel studentModel;
 
+  @override
+  State<ScreenUpdateStudent> createState() => _ScreenUpdateStudentState();
+}
+
+class _ScreenUpdateStudentState extends State<ScreenUpdateStudent> {
   final formKey = GlobalKey<FormState>();
 
   final nameController = TextEditingController();
@@ -29,16 +34,20 @@ class ScreenUpdateStudent extends StatelessWidget {
   final studentClassController = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
-    nameController.text = studentModel.name!;
-    dobController.text = studentModel.dob!;
-    genderController.text = studentModel.gender!;
-    phoneNumberController.text = studentModel.phoneNumber!;
-    emailController.text = studentModel.emailAddress!;
-    departmentController.text = studentModel.department!;
-    rollNumberController.text = studentModel.rollNumber!;
-    studentClassController.text = studentModel.studentClass!;
+  void initState() {
+    super.initState();
+    nameController.text = widget.studentModel.name!;
+    dobController.text = widget.studentModel.dob!;
+    genderController.text = widget.studentModel.gender!;
+    phoneNumberController.text = widget.studentModel.phoneNumber!;
+    emailController.text = widget.studentModel.emailAddress!;
+    departmentController.text = widget.studentModel.department!;
+    rollNumberController.text = widget.studentModel.rollNumber!;
+    studentClassController.text = widget.studentModel.studentClass!;
+  }
 
+  @override
+  Widget build(BuildContext context) {
     final studentProvider = Provider.of<StudentProvider>(context);
     final imagePickerProvider = Provider.of<ImagePickerProvider>(context);
 
@@ -61,7 +70,7 @@ class ScreenUpdateStudent extends StatelessWidget {
                     },
                     image: imageProvider.image.path == ''
                         ? Image.file(
-                            File(studentModel.profile!),
+                            File(widget.studentModel.profile!),
                           ).image
                         : Image.file(imageProvider.image).image,
                   );
@@ -95,14 +104,14 @@ class ScreenUpdateStudent extends StatelessWidget {
           onPressed: () {
             if (formKey.currentState!.validate()) {
               studentProvider.updateStudent(StudentModel(
-                id: studentModel.id,
+                id: widget.studentModel.id,
                 name: nameController.text,
                 dob: dobController.text,
                 gender: genderController.text,
                 phoneNumber: phoneNumberController.text,
                 emailAddress: emailController.text,
                 profile: imagePickerProvider.image.path == ''
-                    ? studentModel.profile
+                    ? widget.studentModel.profile
                     : imagePickerProvider.image.path,
                 department: departmentController.text,
                 rollNumber: rollNumberController.text,
