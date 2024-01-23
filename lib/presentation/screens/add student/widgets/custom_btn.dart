@@ -60,9 +60,23 @@ class CustomAddButton extends StatelessWidget {
           ));
           // Get.back();
           Navigator.pop(context);
-          debugPrint('New student details added');
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('New student details added'),
+              backgroundColor: kBlueGrey,
+              margin: EdgeInsets.all(15),
+              behavior: SnackBarBehavior.floating,
+            ),
+          );
         } else {
-          debugPrint('Must fill all field including profile');
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Must fill all field including profile'),
+              backgroundColor: kBlueGrey,
+              margin: EdgeInsets.all(15),
+              behavior: SnackBarBehavior.floating,
+            ),
+          );
         }
       },
       child: const Text(

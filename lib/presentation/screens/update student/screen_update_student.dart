@@ -118,9 +118,23 @@ class _ScreenUpdateStudentState extends State<ScreenUpdateStudent> {
                 studentClass: studentClassController.text,
               ));
               Navigator.pop(context);
-              debugPrint('Updated successfully');
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Student details updated'),
+                  backgroundColor: kBlueGrey,
+                  margin: EdgeInsets.all(15),
+                  behavior: SnackBarBehavior.floating,
+                ),
+              );
             } else {
-              debugPrint('Must fill all fields including image');
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Must fill all the fields including profile'),
+                  backgroundColor: kBlueGrey,
+                  margin: EdgeInsets.all(15),
+                  behavior: SnackBarBehavior.floating,
+                ),
+              );
             }
           },
           child: const Text(
